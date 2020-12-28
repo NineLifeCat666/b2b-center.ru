@@ -4,15 +4,24 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 
 public class B2bCenterTests extends TestBase{
 
     @Test
     @DisplayName("поиск компании по слову - качество")
     void searchTest(){
-    open("https://www.b2b-center.ru");
-    $("[class='pull-left']").shouldHave(text("Корпоративные закупки и продажи онлайн"));
-    $("#f_keyword_above").val("качество").pressEnter();
-    $("[class='table table-hover table-filled search-results']").shouldHave(text("ООО \"ТД ПОЛИМЕТАЛЛ\""));
+        step("Открываем главную страницу b2b-center", () -> {
+                open("https://www.b2b-center.ru");
+        });
+        step("Проверяем наличие фразы Корпоративные закупки и продажи онлайн", () -> {
+                $("[class='pull-left']").shouldHave(text("Корпоративные закупки и продажи онлайн"));
+        });
+        step("Вводим в поисковую строку слово и нажимаем Enter", () -> {
+            $("#f_keyword_above").val("качество").pressEnter();
+        });
+        step("Ищем в результатах поиска компанию", () -> {
+            $("[class='table table-hover table-filled search-results']").shouldHave(text("ООО \"ТД ПОЛИМЕТАЛЛ\""));
+        });
     }
 }
