@@ -69,8 +69,8 @@ public class B2bCenterTests extends TestBase{
         });
         step("Устанавливаем ценовой диапазон от и до", () -> {
             $(byName("price_start")).val("100000");
-                });
             $(byName("price_end")).val("100000000");
+        });
          step("Нажимаем на кнопку 'Применить фильтры'", () -> {
              $("#submit_filter_button").click();
              $("[class='table table-hover table-filled search-results']").shouldHave(text("ООО \"ТД ПОЛИМЕТАЛЛ\""));
