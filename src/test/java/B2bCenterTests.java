@@ -32,44 +32,35 @@ public class B2bCenterTests extends TestBase {
     @DisplayName("Поиск компании по слову")
     void searchTest() {
         step("Открываем главную страницу b2b-center", () -> {
-                open(mainPageB2bCenter);
-        });
+                open(mainPageB2bCenter); });
 
         step("Проверяем наличие фразы Корпоративные закупки и продажи онлайн", () -> {
-                $("[class='pull-left']").shouldHave(text("Корпоративные закупки и продажи онлайн"));
-        });
+                $("[class='pull-left']").shouldHave(text("Корпоративные закупки и продажи онлайн")); });
 
         step("Вводим в поисковую строку слово и нажимаем Enter", () -> {
-            $("#f_keyword_above").val("качество").pressEnter();
-        });
+            $("#f_keyword_above").val("качество").pressEnter(); });
 
         step("Ищем в результатах поиска компанию", () -> {
-            $("[class='table table-hover table-filled search-results']").shouldHave(text("ООО \"ТД ПОЛИМЕТАЛЛ\""));
-        });
+            $("[class='table table-hover table-filled search-results']").shouldHave(text("ООО \"ТД ПОЛИМЕТАЛЛ\"")); });
     }
 
     @Test
     @DisplayName("Заполнение критериев расширенного поиска")
     void fillExpandedSearchTest() {
         step("открываем главную страницу b2b-center", () -> {
-            open(mainPageB2bCenter);
-        });
+            open(mainPageB2bCenter); });
 
         step("Проверям наличие фразы Торги по отрослям", () -> {
-           $("[class='wrapper neutralBg']").shouldHave(text("Торги по отраслям"));
-        });
+           $("[class='wrapper neutralBg']").shouldHave(text("Торги по отраслям")); });
 
         step("Вводим в поисковую строку слово и нажимаем Enter", () -> {
-           $("#f_keyword_above").val("золото").pressEnter();
-        });
+           $("#f_keyword_above").val("золото").pressEnter(); });
 
         step("Ищем в результатах поиска компанию", () -> {
-            $("[class='table table-hover table-filled search-results']").shouldHave(text("ОАО \"ЗОЛОТО СЕЛИГДАРА\""));
-        });
+            $("[class='table table-hover table-filled search-results']").shouldHave(text("ОАО \"ЗОЛОТО СЕЛИГДАРА\"")); });
 
         step("Выбираем дефолтное значение в блоке 'Например'", () -> {
-            $("[class='apseudo search-example']").shouldHave(text("трубы")).click();
-        });
+            $("[class='apseudo search-example']").shouldHave(text("трубы")).click(); });
 
         step("Вводим название региона ", () -> {
             $("[class='selectize-ico selectize-ico-add']").click();
@@ -94,8 +85,7 @@ public class B2bCenterTests extends TestBase {
     void fillEducationQuestionFormTest() {
         step("Открываем страницу с формой", () -> {
             open(selfEducationB2bCenterPage);
-            $("[class='wrapper featured-layout']").shouldHave(text("Обучение закупкам, торгам по 223 ФЗ с нуля. Повышение квалификации в сфере закупок на B2B-Center"));
-        });
+            $("[class='wrapper featured-layout']").shouldHave(text("Обучение закупкам, торгам по 223 ФЗ с нуля. Повышение квалификации в сфере закупок на B2B-Center")); });
 
         step("Заолняем форму 'Задайте вопрос по обучению'", () -> {
            $(byName("request_phone")).val(telephoneNumber);
